@@ -1,9 +1,6 @@
 # Tipsease-Front-End-Architecture
 React front-end build for Tipsease project.
 
-React front-end build for Tipsease project.
-
-deployed to Netlify @ Netlify Status
 
 Front-end Architecture for Tipsease App.
 
