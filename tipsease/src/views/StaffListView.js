@@ -1,6 +1,5 @@
 import React from "react"
 import { connect } from "react-redux"
-// import { NavLink } from "react-router-dom"
 
 import { getStaff } from "../store/actions"
 
@@ -30,11 +29,11 @@ class StaffListView extends React.Component {
 
   searchUsers = ev => {
     ev.preventDefault();
-    const searchedEmployee = this.props.staff.filter(employee => {
+    const searchedEmployee =this.props.staff.filter(employee => {
       
-      if (employee.first_name.toLowerCase().includes(this.state.searchText)) {
-        return employee;
-      } 
+      return (employee.first_name.toLowerCase().includes(this.state.searchText)); 
+        
+      
     })
 
     this.setState({ searchPosts: searchedEmployee })

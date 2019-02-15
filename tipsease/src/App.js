@@ -76,7 +76,7 @@ class App extends React.Component {
           <Route exact path="/patron-profile/:id" render={props => (
             <div>
               <PatronNavBar /> 
-              <Logo src={require("./tipsease.png")} alt="logo"/>
+              
               <PatronProfileView {...props} /> 
             </div>
             )

@@ -3,7 +3,6 @@ import styled from "styled-components"
 import { NavLink } from "react-router-dom"
 import { withRouter } from "react-router";
 import { connect } from "react-redux";
-
 import { getStaff } from "../../store/actions/"
 
 const StaffContainer = styled.div`
@@ -19,7 +18,7 @@ const StaffContainer = styled.div`
   box-shadow: 2px 1px 12px 5px #86A38C;
 `
 
-const IndividualAvatar = styled.img`
+const UserImage = styled.img`
   width: auto;
   max-width: 550px;
   border-radius: 100%;
@@ -34,7 +33,20 @@ const Logo = styled.img`
   margin: 0 auto;
 `
 
-const FormButton = styled.button`
+
+const StyleNavBar = styled.div`
+  height: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+`
+
+const LinkStyles = styled.div`
+  margin-left: 5%;
+  display: flex;
+  justify-content: flex-start;
+`
+const btn = styled.button`
   padding: 30px 10px 30px;
   border-radius: 20px;
   font-size: 1.8rem;
@@ -49,20 +61,8 @@ const FormButton = styled.button`
   }
 `
 
-const StyleNavBar = styled.div`
-  height: 20px;
-  width: 100%;
-  display: flex;
-  justify-content: flex-start;
-`
 
-const LinkHandle = styled.div`
-  margin-left: 5%;
-  display: flex;
-  justify-content: flex-start;
-`
-
-function staffProfile (props) {
+function StaffProfile (props) {
 
   const handleLogout = (e) => {
     localStorage.clear();
@@ -70,35 +70,39 @@ function staffProfile (props) {
 
   const staffUser = props.staff.find(staff => `${staff.id}` === props.match.params.id);
 
+  /*const deleteHandler= (id)=> {
+    return( 
+    this.props.onDelete(this.props.id));
+  }*/
+  if (!staffUser) {
+    return <h2>Loading...</h2>
+  }
   const toEdit = e => {
     props.history.push(`/staff-profile/${staffUser.id}/edit`)
   }
 
-  if (!staffUser) {
-    return <h2>Loading data...</h2>
-  }
+  
 
   return (
     <div>
       <StyleNavBar/>
-         <LinkHandle>
+         <LinkStyles>
           <NavLink className="nav-link" onClick={handleLogout} to="/">Logout</NavLink>
-         </LinkHandle>
+         </LinkStyles>
       <StyleNavBar/>
       
       <div>
         <Logo src={require("../../tipsease.png")} alt="logo"/>
-        <StaffContainer>
-          
-          <IndividualAvatar src={staffUser.photo_url} alt="use image"/>
-          <StaffName><strong>Employee:</strong> {staffUser.first_name} {staffUser.last_name}</StaffName>
-          <StaffName><strong>Email:</strong> {staffUser.email}</StaffName>
-          <StaffName><strong>Start Date:</strong> {staffUser.start_date}</StaffName>
-          <StaffName><strong>Tagline:</strong> {staffUser.tagline}</StaffName>
-          
-          <FormButton onClick={toEdit}>Edit Profile</FormButton>   
-      
-        </StaffContainer>
+
+        <StaffContainer>  
+          <UserImage src={staffUser.photo_url} alt="use image"/>
+          <StaffName>Employee: {staffUser.first_name} {staffUser.last_name}</StaffName>
+          <StaffName>Email: {staffUser.email}</StaffName>
+          <StaffName>Start Date: {staffUser.start_date}</StaffName>
+          <StaffName>Tagline: {staffUser.tagline}</StaffName>
+          { /*<btn onClick={this.deleteHandler.bind(this.id)}> Delete Profile</btn> */}
+          <btn onClick={toEdit}>Edit Profile</btn> 
+         </StaffContainer>
       </div>
 
     </div>
@@ -111,6 +115,6 @@ const mapStateToProps = state => ({})
 export default withRouter(connect(
   mapStateToProps,
   { getStaff }
-)(staffProfile))
+)(StaffProfile))
 
 

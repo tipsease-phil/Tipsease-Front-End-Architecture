@@ -19,8 +19,8 @@ const FormContainer = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 64px;
-  border: 1px solid lightgray;
-  box-shadow: 2px 1px 12px 5px #86A38C;
+  border: 2px solid lightgray;
+  box-shadow: 2px 1px 12px 5px #8E44AD;
   border-radius: 10px;
 `
 
@@ -43,7 +43,7 @@ const UserInfo = styled.input`
   font-size: 1.8rem;
   width: 450px;
   margin: 12px;
-  border: 1px solid lightgray;
+  border: 2px solid lightgray;
 `
 
 const FormButton = styled.button`
@@ -55,7 +55,7 @@ const FormButton = styled.button`
   border-color: lightgray;
   cursor: pointer;
   &:hover {
-    background-color: #5CA143
+    background-color:#8E44AD
     color: white;
   }
 `
@@ -160,7 +160,7 @@ class RegisterForm extends React.Component {
           <UserInfo type="password" name="password" onChange={this.handleChanges} placeholder="Password" />
           {/* <UserInfo type="text" name="photo_url" onChange={this.handleChanges} placeholder="Profile Picture (URL)" /> */}
 
-          {this.state.tipperBoolean == "true" ? null : (
+          {this.state.tipperBoolean ==="true" ? null : (
             <StyledFormDiv>
           <UserInfo type="text" name="tagline" onChange={this.handleChanges} placeholder="Tagline" />
           <UserInfo type="text" name="start_date" onChange={this.handleChanges} placeholder="Job Start Date" />

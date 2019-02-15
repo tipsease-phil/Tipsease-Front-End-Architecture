@@ -20,7 +20,7 @@ const FormContainer = styled.div`
   justify-content: center;
   margin-bottom: 64px;
   border: 1px solid lightgray;
-  box-shadow: 2px 1px 12px 5px #86A38C;
+  box-shadow: 2px 1px 12px 5px #8E44AD;
   border-radius: 10px;
 `
 
@@ -36,7 +36,7 @@ const StyledForm = styled.form`
 const UserInfo = styled.input`
   padding: 30px 10px 20px;
   border-radius: 20px;
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   width: 450px;
   margin: 12px; auto;
   border: 1px solid lightgray;
@@ -51,7 +51,7 @@ const FormButton = styled.button`
   border-color: lightgray;
 
   &:hover {
-    background-color: #5CA143
+    background-color: #8E44AD
     color: white;
   }
 `
@@ -109,7 +109,7 @@ class UpdateForm extends React.Component {
     .then(res => {
       this.props.history.push(`/staff-profile/${localStorage.getItem('userId')}`);
     })
-    .catch(err => this.setState({ errorMsg: 'This email is already in use' }));
+    .catch(err => this.setState({ errorMsg: 'That email already exists.' }));
   };
 
   render() {

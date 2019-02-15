@@ -4,7 +4,7 @@ import styled from 'styled-components';
 const SearchContainer = styled.div`
   display: flex;
   margin: 48px 0 64px;
-  border-top: 1px solid lightgray;
+  border-top: 2px solid lightgray;
   padding: 48px 0 0;
   align-items: space-between;
   justify-content: center;
@@ -24,8 +24,8 @@ const SearchInput = styled.input`
   margin: 82px auto 48px;
   padding: 20px 20px;
   text-align: center;
-  font-size: 1.8rem;
-  font-weight: bold;
+  font-size: 1.6rem;
+  
 `
 
 const StaffHeader = styled.p`

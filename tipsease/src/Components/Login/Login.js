@@ -6,8 +6,8 @@ import { connect } from "react-redux";
 
 import styled from "styled-components";
 
-const LoginContainer = styled.div`
-  padding-bottom: 64px;
+const LoginContainerStyles = styled.div`
+  padding-bottom: 60px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -15,59 +15,59 @@ const LoginContainer = styled.div`
 `
 
 const Logo = styled.img`
-  height: 350px;
+  height: 175px;
   width: auto;
-  margin: 24px auto;
+  margin: 15px auto;
 `
 
-const StyledForm = styled.form`
-  margin: 48px auto 0;
-  padding: 24px 0;
+const FormStyles = styled.form`
+  margin: 5px auto 0;
+  padding: 10px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
-  border: 1px solid lightgray;
-  box-shadow: 2px 1px 12px 5px #86A38C;
+  width: 55%;
+  border: 2px solid lightgray;
+  box-shadow: 2px 1px 12px 5px #8E44AD;
   border-radius: 10px;
 `
 
-const ButtonContainer = styled.div`
+const BtnContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 `
 
 const UserInfo = styled.input`
-  padding: 30px 10px 20px;
+  padding: 10px 10px 10px;
   border-radius: 20px;
-  font-size: 1.8rem;
-  width: 450px;
+  font-size: 1.6rem;
+  width: 300px;
   margin: 12px; auto;
-  border: 1px solid lightgray;
+  border: 2px solid lightgray;
 `
 
-const LoginButtons = styled.button`
-  padding: 30px 10px 30px;
+const LoginBtn = styled.button`
+  padding: 10px 10px 10px;
   border-radius: 20px;
   font-size: 1.8rem;
-  width: 450px;
+  width: 400px;
   margin: 12px; auto;
-  border: 1px solid lightgray;
+  border: 2px solid lightgray;
   cursor: pointer;
   &:hover {
-    background-color: #5CA143
+    background-color: #8E44AD
     color: white;
   }
 `
 
-const RadioContainer = styled.div`
+const RadioBox = styled.div`
   margin: 8px auto 20px;
   display: flex;
   justify-content: center;
 `
 
-const RadioButton = styled.input`
+const RadioBtn = styled.input`
 cursor: pointer;
   padding: 16px;
   width: 16px;
@@ -75,7 +75,7 @@ cursor: pointer;
   margin: 0 5%;
 `
 
-const RadioFont = styled.label`
+const RadioFontStyle = styled.label`
   font-size: 1.6rem;
 `
 
@@ -126,38 +126,38 @@ class Login extends React.Component {
 
   render() {
     return (
-      <LoginContainer>
+      <LoginContainerStyles>
         <Logo src={require("../../tipsease.png")} alt="logo"/>
-        <StyledForm>
+        <FormStyles>
 
           <UserInfo type="text" autoComplete="off" placeholder="Email" name="email" value={this.state.email} onChange={this.handleChange}  />
           <UserInfo type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.handleChange}  />
 
-          <ButtonContainer>
+          <BtnContainer>
 
             <div>
 
-              <RadioContainer>
-                <RadioButton type="radio" id="employee"
+              <RadioBox>
+                <RadioBtn type="radio" id="employee"
                 name="tipperBoolean" value={false} onChange={this.handleChange} defaultChecked />
-                <RadioFont>Employee</RadioFont>
+                <RadioFontStyle>Employee</RadioFontStyle>
 
-                <RadioButton type="radio" id="patron"
+                <RadioBtn type="radio" id="patron"
                 name="tipperBoolean" value={true} onChange={this.handleChange}  />
-                <RadioFont>Patron</RadioFont>
-              </RadioContainer>
+                <RadioFontStyle>Patron</RadioFontStyle>
+              </RadioBox>
 
-              <LoginButtons onClick={this.handleSubmit}>Log In</LoginButtons>
+              <LoginBtn onClick={this.handleSubmit}>Log In</LoginBtn>
 
             </div>
             
-            <LoginButtons onClick={this.handleRegister}>Register</LoginButtons>
-          </ButtonContainer>
+            <LoginBtn onClick={this.handleRegister}>Register</LoginBtn>
+          </BtnContainer>
 
-        </StyledForm>
+        </FormStyles>
 
 
-      </LoginContainer>
+      </LoginContainerStyles>
     )
   }
 }
